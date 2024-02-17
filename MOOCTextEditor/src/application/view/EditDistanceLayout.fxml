@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="CENTER" fillWidth="true" prefHeight="200.0" prefWidth="300.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.EditDistanceDialogController">
+<VBox alignment="CENTER" fillWidth="true" prefHeight="200.0" prefWidth="300.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="src.application.EditDistanceDialogController">
   <children>
     <Label text="Enter two words...">
       <font>

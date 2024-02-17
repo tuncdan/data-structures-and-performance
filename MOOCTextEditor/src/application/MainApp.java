@@ -29,14 +29,12 @@ public class MainApp extends Application {
 	// called at start of application
 	@Override
 	public void start(Stage primaryStage) {
-		
 		this.primaryStage = primaryStage;
-		
 		this.primaryStage.setTitle("TextProApp");
 		
 		try {
 			// Load root layout from fxml
-			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/RootLayout.fxml"));
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("./view/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -45,8 +43,6 @@ public class MainApp extends Application {
             primaryStage.setMinHeight(430);
             primaryStage.setMinWidth(334);
             primaryStage.show();
-            
-          
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -60,7 +56,7 @@ public class MainApp extends Application {
     public void showTextProApp() {
         try {
             // Load the fxml file and set into the center of the main layout
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("view/TextAppLayout.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("./view/TextAppLayout.fxml"));
             
             HBox textProPage = (HBox) loader.load();
             rootLayout.setCenter(textProPage);
@@ -74,8 +70,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-    
-    
+
     
     // SHOW NEW STAGE METHODS
     

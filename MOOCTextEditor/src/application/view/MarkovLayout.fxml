@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MarkovController">
+<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="src.application.MarkovController">
   <!-- TODO Add Nodes -->
   <bottom>
     <VBox alignment="BOTTOM_CENTER" fillWidth="true" prefHeight="90.0" prefWidth="400.0" spacing="15.0">

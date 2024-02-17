@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.Double?>
-<HBox fx:id="container" maxHeight="1080.0" maxWidth="1980.0" prefHeight="582.0" prefWidth="855.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.TextProController">
+<HBox fx:id="container" maxHeight="1080.0" maxWidth="1980.0" prefHeight="582.0" prefWidth="855.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="src.application.TextProController">
 	<fx:define>
 	<Double fx:id="MIN_WINDOW" fx:value="334.0" />
 	</fx:define>
