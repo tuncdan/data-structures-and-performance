@@ -241,16 +241,10 @@ public class MainApp extends Application {
 
 			// Show the dialog and wait until the user closes it
 		    dialogStage.showAndWait();
-		    
-		    
-		
-
     	} catch (IOException e) {
     		// Exception gets thrown if the fxml file could not be loaded
     		e.printStackTrace();
     	}
-    	
-    	
     }
     
     public void showLoadStage(Stage loadStage, String text) {
@@ -267,8 +261,7 @@ public class MainApp extends Application {
         loadStage.setScene(loadScene);
         loadStage.show();
     }
-    
-    
+
     // MAIN
 	public static void main(String[] args) {
 		launch(args);
@@ -277,5 +270,4 @@ public class MainApp extends Application {
 	public Stage getStage() {
 		return this.primaryStage;
 	}
-	
 }
