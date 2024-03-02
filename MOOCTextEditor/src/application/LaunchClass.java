@@ -4,8 +4,7 @@ import java.util.Random;
 
 
 public class LaunchClass {
-	
-	public String dictFile = "data/dict.txt";
+	public String dictFile = "./data/dict.txt";
 	
 	public LaunchClass() {
 		super();
@@ -13,7 +12,8 @@ public class LaunchClass {
 	
 	public src.document.Document getDocument(String text) {
 		// Change this to BasicDocument(text) for week 1 only
-		return new src.document.EfficientDocument(text);
+		//return new src.document.EfficientDocument(text);
+		return new src.document.BasicDocument(text);
 	}
 	
 	public src.textgen.MarkovTextGenerator getMTG() {
@@ -39,6 +39,5 @@ public class LaunchClass {
     public src.spelling.SpellingSuggest getSpellingSuggest(src.spelling.Dictionary dic) {
     	//return new spelling.SpellingSuggestNW(new spelling.NearbyWords(dic));
     	return new src.spelling.NearbyWords(dic);
-    
     }
 }

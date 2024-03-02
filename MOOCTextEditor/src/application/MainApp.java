@@ -34,7 +34,7 @@ public class MainApp extends Application {
 		
 		try {
 			// Load root layout from fxml
-			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("./view/RootLayout.fxml"));
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("../resources/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -55,8 +55,12 @@ public class MainApp extends Application {
      */
     public void showTextProApp() {
         try {
+//			String currentDir = System.getProperty("user.dir");
+//			System.out.println("Current dir: " + currentDir);
             // Load the fxml file and set into the center of the main layout
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("./view/TextAppLayout.fxml"));
+
+			java.net.URL resource = getClass().getResource("resources/TextAppLayout.fxml");
+            FXMLLoader loader = new FXMLLoader(resource);
             
             HBox textProPage = (HBox) loader.load();
             rootLayout.setCenter(textProPage);
@@ -97,7 +101,7 @@ public class MainApp extends Application {
     public void showLoadFileDialog(AutoSpellingTextArea ta) {
     	try {
     		// Load the fxml file and create a new stage for the popup
-			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/LoadFileLayout.fxml"));
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("../resources/LoadFileLayout.fxml"));
 			VBox page = (VBox) loader.load();
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Load File");
@@ -130,7 +134,7 @@ public class MainApp extends Application {
     public void showEditDistanceDialog(String selectedText) {
     	try {
     		// Load the fxml file and create a new stage for the popup
-			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/EditDistanceLayout.fxml"));
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("../resources/EditDistanceLayout.fxml"));
 			VBox page = (VBox) loader.load();
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Calculate Edit Distance");
@@ -223,7 +227,7 @@ public class MainApp extends Application {
     public void showMarkovDialog(src.textgen.MarkovTextGenerator mtg) {
     	try {
     		// Load the fxml file and create a new stage for the popup
-			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/MarkovLayout.fxml"));
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("../resources/MarkovLayout.fxml"));
 			BorderPane page = (BorderPane) loader.load();
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Markov Text Generator");
