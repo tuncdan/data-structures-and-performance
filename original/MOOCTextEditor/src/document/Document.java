@@ -1,4 +1,4 @@
-package src.document;
+package document;
 
 /** 
  * A class that represents a text document
@@ -127,7 +127,8 @@ public abstract class Document {
 		}
 		return passed;
 	}
-
+	
+	
 	/** Return the number of words in this document */
 	public abstract int getNumWords();
 	
