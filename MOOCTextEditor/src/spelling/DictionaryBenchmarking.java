@@ -16,8 +16,10 @@ public class DictionaryBenchmarking {
 	    // You can try playing around with this number.
 	    int trials = 500;
 
+		String currentDir = System.getProperty("user.dir");
+		System.out.println("Current dir: " + currentDir);
 	    // The text to test on
-	    String dictFile = "data/dict.txt";
+	    String dictFile = "/data/dict.txt";
 		
 	    // The amount of words to increment each step
 	    // You can play around with this

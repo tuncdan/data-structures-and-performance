@@ -4,7 +4,7 @@ import java.util.Random;
 
 
 public class LaunchClass {
-	public String dictFile = "./data/dict.txt";
+	public String dictFile = "MOOCTextEditor/data/dict.txt";
 	
 	public LaunchClass() {
 		super();
@@ -13,6 +13,7 @@ public class LaunchClass {
 	public src.document.Document getDocument(String text) {
 		// Change this to BasicDocument(text) for week 1 only
 		//return new src.document.EfficientDocument(text);
+
 		return new src.document.BasicDocument(text);
 	}
 	
