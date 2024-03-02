@@ -32,9 +32,7 @@ public class BasicDocument extends src.document.Document
 	@Override
 	public int getNumWords()
 	{
-		//TODO: Implement this method in week 2 according to the comments above.  
-		// See the Module 2 support videos if you need help.
-	    return 0;
+		return super.getTokens("\\S+").size();
 	}
 	
 	/**
@@ -52,9 +50,7 @@ public class BasicDocument extends src.document.Document
 	@Override
 	public int getNumSentences()
 	{
-	    //TODO: Implement this method.  See the Module 2 support videos 
-        // if you need help.
-        return 0;
+	    return super.getTokens("[^.!?]+").size();
 	}
 	
 	/**
@@ -79,7 +75,13 @@ public class BasicDocument extends src.document.Document
 		// expression for the syllable counting.  We recommend you implement 
 		// the helper function countSyllables in Document.java using a loop, 
 		// and then call it here on each word.
-        return 0;
+		int totalSyllables = 0;
+
+		for (String word : super.getTokens("\\S+")) {
+			totalSyllables += countSyllables(word);
+		}
+
+        return totalSyllables;
 	}
 	
 	

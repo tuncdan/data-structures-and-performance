@@ -125,8 +125,8 @@ public class TextProController {
 			adjustSpacing.accept(rightBox);
 		});
 		
-		rightBox.visibleProperty().addListener( li -> {
-			if(rightBox.isVisible()) {
+		rightBox.visibleProperty().addListener(li -> {
+			if (rightBox.isVisible()) {
 				 container.getChildren().add(rightBox);
 				 adjustSpacing.accept(rightBox);
 			 }

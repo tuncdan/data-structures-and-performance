@@ -110,8 +110,7 @@ public abstract class Document {
 		}
 		return passed;
 	}
-	
-	
+
 	/** Return the number of words in this document */
 	public abstract int getNumWords();
 	
@@ -130,11 +129,10 @@ public abstract class Document {
 	/** return the Flesch readability score of this document */
 	public double getFleschScore()
 	{
-	    // TODO: You will play with this method in week 1, and 
-		// then implement it in week 2
-	    return 0.0;
+		double numWords = getNumWords();
+		double numSentences = getNumSentences();
+		double numSyllables = getNumSyllables();
+
+	    return 206.835 - 1.015 * (numWords/numSentences) - 84.6 * (numSyllables/numWords);
 	}
-	
-	
-	
 }
