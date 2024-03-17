@@ -34,7 +34,8 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumWords()
 	{
-		return super.getTokens("\\S+").size();
+		List<String> tokens = getTokens("[a-zA-Z]+");
+		return tokens.size();
 	}
 	
 	/**
@@ -52,7 +53,8 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumSentences()
 	{
-	    return super.getTokens("[^.!?]+").size();
+	    List<String> tokens = getTokens("[^?.!]+");
+		return tokens.size();
 	}
 	
 	/**
