@@ -96,10 +96,8 @@ public class MyLinkedListTester {
 		}
 		catch (IndexOutOfBoundsException e) {
 		}
-		
 	}
-	
-	
+
 	/** Test removing an element from the list.
 	 * We've included the example from the concept challenge.
 	 * You will want to add more tests.  */
@@ -111,7 +109,21 @@ public class MyLinkedListTester {
 		assertEquals("Remove: check element 0 is correct ", (Integer)21, list1.get(0));
 		assertEquals("Remove: check size is correct ", 2, list1.size());
 		
-		// TODO: Add more tests here
+		try {
+			list1.remove(3);
+			fail("Check out of bounds");
+		}
+		catch (IndexOutOfBoundsException e) {
+
+		}
+
+		try {
+			list1.remove(-1);
+			fail("Check out of bounds");
+		}
+		catch (IndexOutOfBoundsException e) {
+
+		}
 	}
 	
 	/** Test adding an element into the end of the list, specifically
@@ -120,20 +132,33 @@ public class MyLinkedListTester {
 	@Test
 	public void testAddEnd()
 	{
-        // TODO: implement this test
-		
+		boolean result = list1.add(1);
+		assertEquals("Add: check result is correct ", true, result);
+		assertEquals("Add: check element is correct ", (Integer)1, list1.get(3));
+		assertEquals("Add: check size is correct ", 4, list1.size());
+
+		try {
+			list1.add(null);
+			fail("Check null element");
+		}
+		catch (NullPointerException e) {
+
+		}
 	}
 
-	
 	/** Test the size of the list */
 	@Test
 	public void testSize()
 	{
-		// TODO: implement this test
+		assertEquals("Size: check size is correct ", 3, list1.size());
+		list1.add(1);
+		assertEquals("Size: check size is correct ", 4, list1.size());
+		list1.remove(0);
+		assertEquals("Size: check size is correct ", 3, list1.size());
+		list1.remove(1);
+		assertEquals("Size: check size is correct ", 2, list1.size());
 	}
 
-	
-	
 	/** Test adding an element into the list at a specified index,
 	 * specifically:
 	 * public void add(int index, E element)
@@ -141,19 +166,98 @@ public class MyLinkedListTester {
 	@Test
 	public void testAddAtIndex()
 	{
-        // TODO: implement this test
-		
+		list1.add(1, 1);
+		assertEquals("Add: check element is correct ", (Integer)1, list1.get(1));
+		assertEquals("Add: check next element is correct ", (Integer)21, list1.get(2));
+		assertEquals("Add: check size is correct ", 4, list1.size());
+
+		try {
+			list1.add(1, null);
+			fail("Check null element");
+		}
+		catch (NullPointerException e) {
+
+		}
+
+		try {
+			list1.add(-1, 1);
+			fail("Check out of bounds");
+		}
+		catch (IndexOutOfBoundsException e) {
+
+		}
+
+		try {
+			list1.add(5, 1);
+			fail("Check out of bounds");
+		}
+		catch (IndexOutOfBoundsException e) {
+
+		}
 	}
 	
 	/** Test setting an element in the list */
 	@Test
 	public void testSet()
 	{
-	    // TODO: implement this test
-	    
+	    Integer result = list1.set(0, 1);
+		assertEquals("Set: check result is correct ", 65, result.intValue());
+	    Integer newValue = list1.get(0);
+		assertEquals("Set: check new value is correct ", 1, newValue.intValue());
+		Integer nextValue = list1.get(1);
+		assertEquals("Set: check next value is correct ", 21, nextValue.intValue());
+		Integer lastValue = list1.get(2);
+		assertEquals("Set: check last value is correct ", 42, lastValue.intValue());
+
+		try {
+			list1.set(-1, 1);
+			fail("Check out of bounds");
+		}
+		catch (IndexOutOfBoundsException e) {
+
+		}
+
+		try {
+			list1.set(3, 1);
+			fail("Check out of bounds");
+		}
+		catch (IndexOutOfBoundsException e) {
+
+		}
 	}
-	
-	
-	// TODO: Optionally add more test methods.
-	
+
+//	@Test
+//	public void testGetNode()
+//	{
+//		LLNode<Integer> firstNode =  list1.getNode(0);
+//		assertEquals("Check data", (Integer)65, firstNode.data);
+//		assertEquals("First node should be pointed by head node", list1.head, firstNode.prev);
+//
+//		LLNode<Integer> lastNode =  list1.getNode(2);
+//		assertEquals("Check data", (Integer)42, lastNode.data);
+//		assertEquals("Last node should point to tail node", list1.tail, lastNode.next);
+//
+//		LLNode<Integer> middleNode =  list1.getNode(1);
+//		assertEquals("Check data", (Integer)21, middleNode.data);
+//		assertEquals("Middle node should pointed by first node", firstNode.next, middleNode);
+//		assertEquals("Middle node should point to last node", middleNode.next, lastNode);
+//		assertEquals("Middle node should point to first node", middleNode.prev, firstNode);
+//		assertEquals("Last node should point to middle node", lastNode.prev, middleNode);
+//
+//		try {
+//			list1.getNode(-1);
+//			fail("Check out of bounds");
+//		}
+//		catch (IndexOutOfBoundsException e) {
+//
+//		}
+//
+//		try {
+//			list1.getNode(3);
+//			fail("Check out of bounds");
+//		}
+//		catch (IndexOutOfBoundsException e) {
+//
+//		}
+//	}
 }

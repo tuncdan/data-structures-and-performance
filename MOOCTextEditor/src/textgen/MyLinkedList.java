@@ -28,6 +28,9 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public boolean add(E element)
 	{
+		if (element == null)
+			throw new NullPointerException("Element cannot be null");
+
 		LLNode<E> newNode = new LLNode<>(element);
 		appendItem(newNode, tail.prev);
 		return true;
@@ -40,7 +43,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		LLNode node = getNode(index);
 
 		if (node == null)
-			return null;
+			throw new IndexOutOfBoundsException("Index out of bounds");
 
 		return (E)node.data;
 	}
@@ -52,11 +55,21 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public void add(int index, E element)
 	{
-		LLNode<E> newNode = new LLNode<>(element);
+		if (element == null)
+			throw new NullPointerException("Element cannot be null");
+
+		if (isEmpty()) {
+			add(element);
+			return;
+		}
+
 		LLNode<E> node = getNode(index);
+		if (node == null)
+			throw new IndexOutOfBoundsException("Index out of bounds");
+
+		LLNode<E> newNode = new LLNode<>(element);
 		appendItem(newNode, node.prev);
 	}
-
 
 	/** Return the size of the list */
 	public int size() 
@@ -74,13 +87,12 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	{
 		LLNode<E> node = getNode(index);
 		if (node == null)
-			return null;
+			throw new IndexOutOfBoundsException("Index out of bounds");
 
-		E oldData = node.data;
 		node.prev.next = node.next;
 		node.next.prev = node.prev;
 		--size;
-		return oldData;
+		return node.data;
 	}
 
 	/**
@@ -92,6 +104,9 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public E set(int index, E element) 
 	{
+		if (element == null)
+			throw new NullPointerException("Element cannot be null");
+
 		LLNode<E> node = getNode(index);
 		if (node == null)
 			return null;
@@ -101,7 +116,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		return oldData;
 	}
 
-	private LLNode<E> getNode(int index)
+	public LLNode<E> getNode(int index)
 	{
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException("Index out of bounds");
@@ -117,13 +132,18 @@ public class MyLinkedList<E> extends AbstractList<E> {
         return pointer;
     }
 
-	private void appendItem(LLNode<E> newNode, LLNode<E> prev)
+	public void appendItem(LLNode<E> newNode, LLNode<E> prev)
 	{
 		newNode.prev = prev;
 		newNode.next = prev.next;
 		prev.next = newNode;
 		newNode.next.prev = newNode;
 		++size;
+	}
+
+	public boolean isEmpty()
+	{
+		return size == 0;
 	}
 }
 
@@ -142,5 +162,13 @@ class LLNode<E>
 		this.data = e;
 		this.prev = prev;
 		this.next = next;
+	}
+
+	@Override
+	public String toString() {
+		if (data == null)
+			return "null";
+
+		return data.toString();
 	}
 }
