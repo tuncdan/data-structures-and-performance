@@ -40,7 +40,6 @@ public class MyLinkedListTester {
 		list1.add(65);
 		list1.add(21);
 		list1.add(42);
-		
 	}
 
 	

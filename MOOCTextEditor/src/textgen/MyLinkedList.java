@@ -16,25 +16,33 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
 	/** Create a new empty LinkedList */
 	public MyLinkedList() {
-		// TODO: Implement this method
+		head = new LLNode<>(null);
+		tail = new LLNode<>(null);
+		head.next = tail;
+		tail.prev = head;
 	}
 
 	/**
 	 * Appends an element to the end of the list
 	 * @param element The element to add
 	 */
-	public boolean add(E element ) 
+	public boolean add(E element)
 	{
-		// TODO: Implement this method
-		return false;
+		LLNode<E> newNode = new LLNode<>(element);
+		appendItem(newNode, tail.prev);
+		return true;
 	}
 
 	/** Get the element at position index 
 	 * @throws IndexOutOfBoundsException if the index is out of bounds. */
 	public E get(int index) 
 	{
-		// TODO: Implement this method.
-		return null;
+		LLNode node = getNode(index);
+
+		if (node == null)
+			return null;
+
+		return (E)node.data;
 	}
 
 	/**
@@ -42,17 +50,18 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 * @param The index where the element should be added
 	 * @param element The element to add
 	 */
-	public void add(int index, E element ) 
+	public void add(int index, E element)
 	{
-		// TODO: Implement this method
+		LLNode<E> newNode = new LLNode<>(element);
+		LLNode<E> node = getNode(index);
+		appendItem(newNode, node.prev);
 	}
 
 
 	/** Return the size of the list */
 	public int size() 
 	{
-		// TODO: Implement this method
-		return -1;
+		return size;
 	}
 
 	/** Remove a node at the specified index and return its data element.
@@ -63,8 +72,15 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public E remove(int index) 
 	{
-		// TODO: Implement this method
-		return null;
+		LLNode<E> node = getNode(index);
+		if (node == null)
+			return null;
+
+		E oldData = node.data;
+		node.prev.next = node.next;
+		node.next.prev = node.prev;
+		--size;
+		return oldData;
 	}
 
 	/**
@@ -76,9 +92,39 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public E set(int index, E element) 
 	{
-		// TODO: Implement this method
-		return null;
-	}   
+		LLNode<E> node = getNode(index);
+		if (node == null)
+			return null;
+
+		E oldData = node.data;
+		node.data = element;
+		return oldData;
+	}
+
+	private LLNode<E> getNode(int index)
+	{
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("Index out of bounds");
+		}
+
+		LLNode<E> pointer = head.next;
+
+		while (pointer.next != null && index > 0) {
+			pointer = pointer.next;
+			--index;
+		}
+
+        return pointer;
+    }
+
+	private void appendItem(LLNode<E> newNode, LLNode<E> prev)
+	{
+		newNode.prev = prev;
+		newNode.next = prev.next;
+		prev.next = newNode;
+		newNode.next.prev = newNode;
+		++size;
+	}
 }
 
 class LLNode<E> 
@@ -87,14 +133,14 @@ class LLNode<E>
 	LLNode<E> next;
 	E data;
 
-	// TODO: Add any other methods you think are useful here
-	// E.g. you might want to add another constructor
-
-	public LLNode(E e) 
+	public LLNode(E e)
 	{
-		this.data = e;
-		this.prev = null;
-		this.next = null;
+		this(e, null, null);
 	}
 
+	public LLNode(E e, LLNode<E> prev, LLNode<E> next) {
+		this.data = e;
+		this.prev = prev;
+		this.next = next;
+	}
 }
