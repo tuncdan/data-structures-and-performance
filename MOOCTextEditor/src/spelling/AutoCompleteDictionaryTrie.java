@@ -11,14 +11,12 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 
     private TrieNode root;
     private int size;
-    
 
     public AutoCompleteDictionaryTrie()
 	{
 		root = new TrieNode();
 	}
-	
-	
+
 	/** Insert a word into the trie.
 	 * For the basic part of the assignment (part 2), you should convert the 
 	 * string to all lower case before you insert it. 

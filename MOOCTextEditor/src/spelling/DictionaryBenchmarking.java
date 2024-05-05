@@ -8,8 +8,6 @@ package src.spelling;
  */
 
 public class DictionaryBenchmarking {
-
-	
 	public static void main(String [] args) {
 
 	    // Run each test more than once to get bigger numbers and less noise.
@@ -19,7 +17,7 @@ public class DictionaryBenchmarking {
 		String currentDir = System.getProperty("user.dir");
 		System.out.println("Current dir: " + currentDir);
 	    // The text to test on
-	    String dictFile = "/data/dict.txt";
+	    String dictFile = "MOOCTextEditor/data/dict.txt";
 		
 	    // The amount of words to increment each step
 	    // You can play around with this
@@ -61,9 +59,6 @@ public class DictionaryBenchmarking {
 			long timeBST = (endTime - startTime);
 			
 			System.out.println(numToCheck + "\t" + timeLL + "\t" + timeBST);
-			
 		}
-	
 	}
-	
 }

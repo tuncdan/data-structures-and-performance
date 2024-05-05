@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class DictionaryLLTester {
 
-	private String dictFile = "data/words.small.txt"; 
+	private String dictFile = "MOOCTextEditor/data/words.small.txt";
 
 	DictionaryLL emptyDict; 
 	DictionaryLL smallDict;
@@ -73,16 +73,12 @@ public class DictionaryLLTester {
 		
 		assertEquals("Testing isWord on small: subsequent", true, smallDict.isWord("subsequent"));
 		assertEquals("Testing isWord on large: subsequent", true, largeDict.isWord("subsequent"));
-		
-		
 	}
 	
 	/** Test the addWord method */
 	@Test
 	public void addWord()
 	{
-		
-		
 		assertEquals("Asserting hellow is not in empty dict", false, emptyDict.isWord("hellow"));
 		assertEquals("Asserting hellow is not in small dict", false, smallDict.isWord("hellow"));
 		assertEquals("Asserting hellow is not in large dict", false, largeDict.isWord("hellow"));
@@ -118,8 +114,5 @@ public class DictionaryLLTester {
 		
 		assertEquals("Testing isWord on small: subsequent", true, smallDict.isWord("subsequent"));
 		assertEquals("Testing isWord on large: subsequent", true, largeDict.isWord("subsequent"));
-		
-		
-	}	
-	
+	}
 }

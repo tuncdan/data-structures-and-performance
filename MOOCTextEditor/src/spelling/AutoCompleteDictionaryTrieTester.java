@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 public class AutoCompleteDictionaryTrieTester {
 
-	private String dictFile = "data/words.small.txt"; 
+	private String dictFile = "MOOCTextEditor/data/words.small.txt";
 
 	AutoCompleteDictionaryTrie emptyDict; 
 	AutoCompleteDictionaryTrie smallDict;
